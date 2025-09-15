@@ -1,16 +1,16 @@
-const mongoose = require('mongoose')
-const pagination = require('mongoose-paginate-v2')
+const mongoose = require('mongoose');
 
+const LocationRequestSchema = new mongoose.Schema({
+  propertyId: { type: String, required: true },
+  firstName: String,
+  lastName: String,
+  email: String,
+  phone: String,
+  budget: String,
+  moveInDate: Date,
+  message: String,
+  financingNeeded: Boolean,
+  visitPreference: String,
+});
 
-const locationSchema = mongoose.Schema({
-    type_location: {
-        type: String,
-        enum: ['magasins', 'bureau', 'villa', 'chambre_hote']
-    },
-    description: {
-        type: String
-    }
-})
-
-mongoose.plugin(pagination)
-module.exports = mongoose.model('Locations', locationSchema)
+module.exports = mongoose.model('LocationRequest', LocationRequestSchema);

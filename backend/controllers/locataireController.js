@@ -37,7 +37,7 @@ const modifierLocataire = async (req, res) => {
     try {
         let { nom, prenom, genre, adresse, telephone, email, type, codePostal, piece, photo } = req.body;
         const _id = req.params._id
-        const modif = await locataires.findOneAndUpdate({ _id:_id },
+        const modif = await locataires.findOneAndUpdate({ _id: _id },
             { nom, prenom, genre, adresse, telephone, email, type, codePostal, piece, photo }
         )
         res.status(200).json(modif);
@@ -49,7 +49,7 @@ const modifierLocataire = async (req, res) => {
 const suprimerLocataire = async (req, res) => {
     try {
         const _id = req.params._id
-        const supr =await locataires.findOneAndDelete({_id})
+        const supr = await locataires.findOneAndDelete({ _id })
         res.status(200).json(supr);
     } catch (error) {
         console.log(error)

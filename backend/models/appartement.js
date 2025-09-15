@@ -48,6 +48,9 @@ const appartementSchema = mongoose.Schema({
         type: String,
         required: true
     }
+},
+{
+    timeStamp: true
 })
 
 mongoose.plugin(mongoosePaginate)

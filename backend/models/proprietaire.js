@@ -38,6 +38,9 @@ const proprietaireSchema = mongoose.Schema({
     photo:{
         type: String
     }
+},
+{
+    timeStamp: true
 })
 
 mongoose.plugin(paginate)

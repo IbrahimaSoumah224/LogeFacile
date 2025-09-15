@@ -6,11 +6,13 @@ const pagination = require('mongoose-paginate-v2')
 const bureauSchema = mongoose.Schema({
     localisation: {
         type: String,
-        required: true
+        required: true,
+        enum: ['commune urbaine', 'quartier', 'secteur']
     },
     statut: {
         type: String,
-        required: true
+        required: true,
+        enum: ['libre', 'occupe']
     },
     mensualite:{
         type: String,

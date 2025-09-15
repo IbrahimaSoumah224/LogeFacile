@@ -6,11 +6,12 @@ const pagination = require('mongoose-paginate-v2')
 const magasinSchema = mongoose.Schema({
     localisation: {
         type: String,
-        required: true
+        enum: ['commune urbaine', 'quartier', 'secteur']
     },
     statut: {
         type: String,
-        required: true
+        required: true,
+        enum: ['libre', 'occupe']
     },
     mensualite:{
         type: String,

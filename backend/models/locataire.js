@@ -1,6 +1,7 @@
 const mongoose = require('mongoose')
 const { type } = require('os')
-const pagination = require('mongoose-paginate-v2')
+const pagination = require('mongoose-paginate-v2');
+const { timeStamp } = require('console');
 
 
 const locataireSchema = mongoose.Schema({
@@ -51,6 +52,9 @@ const locataireSchema = mongoose.Schema({
         type: String,
         required: true
     }
+},
+{
+    timeStamp: true
 });
 mongoose.plugin(pagination)
 module.exports = mongoose.model('Locataires', locataireSchema);

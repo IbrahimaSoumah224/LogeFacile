@@ -16,7 +16,8 @@ const publicationSchema = mongoose.Schema({
         required: true
     },
     service_annexe_inclus:{
-        type: String
+        type: String,
+        enum: ["oui", "non"]
     },
     localisation:{
         type: String,
@@ -34,6 +35,17 @@ const publicationSchema = mongoose.Schema({
     caution:{
         type: String,
         required: true
+    },
+    chambre_hote:{
+        type: String,
+        enum: ["oui", "non"]
+    },
+    villa: {
+        type: String,
+        enum: ["oui", "non"]
+    },
+    parcelle: {
+        type: String
     },
     photo:{
         type: String,
@@ -54,11 +66,22 @@ const publicationSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    id_promoteur:{
-        type: mongoose.Types.ObjectId, 
-        ref: "Promoteurs"
-    }
-})
+    // id_promoteur:{
+    //     type: mongoose.Types.ObjectId, 
+    //     ref: "Promoteurs"
+    // },
+    // id_magasin:{
+    //     type: mongoose.Schema.Types.ObjectId, 
+    //     ref: 'Magasins'
+    // },
+    // id_bureau: {
+    //     type: mongoose.Schema.Types.ObjectId,
+    //     ref: 'Bureau'
+    // }
+},
+{
+    timeStamp: true
+});
 
 mongoose.plugin(pagination)
 module.exports = mongoose.model('Publications', publicationSchema)
